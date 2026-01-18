@@ -44,7 +44,7 @@ ChatBots/
 ├── chatterbot.py                    # Implementação ChatterBot (script)
 ├── chatterbot.ipynb                 # Implementação ChatterBot (notebook)
 │
-├── germini.py                       # Implementação Gemini (script)
+├── germini.py                       # Implementação Gemini (script)*
 ├── gemini.ipynb                     # Implementação Gemini (notebook)
 │
 ├── AI_agents_alura.ipynb           # Agentes IA - Aula 1 e 2
@@ -53,6 +53,8 @@ ChatBots/
 ├── db.sqlite3                       # Banco de dados do ChatterBot
 └── README.md                        # Este arquivo
 ```
+
+**Nota**: O arquivo Python do Gemini é `germini.py` (com 'r').
 
 ## 📋 Pré-requisitos
 
@@ -104,10 +106,27 @@ pip install langgraph
 
 ### 4. Configure a API Key do Google Gemini
 
-Crie um arquivo `src/configs/creds_my.py` (para os scripts) ou configure no Google Colab:
+**Para usar com scripts Python** (`germini.py`):
+
+Crie a estrutura de diretórios e arquivo de configuração:
+
+```bash
+mkdir -p src/configs
+```
+
+Crie o arquivo `src/configs/creds_my.py`:
 
 ```python
 API_KEY = "sua-chave-api-aqui"
+```
+
+**Para usar com Google Colab**:
+
+Configure diretamente no código ou use os secrets do Colab:
+
+```python
+from google.colab import userdata
+API_KEY = userdata.get('API_KEY')
 ```
 
 ⚠️ **Importante**: Nunca compartilhe sua API Key publicamente!
@@ -220,6 +239,8 @@ python chatterbot.py
 ```bash
 python germini.py
 ```
+
+*Nota: O arquivo é `germini.py` (com 'r')*
 
 ### Executar Notebooks Jupyter
 
