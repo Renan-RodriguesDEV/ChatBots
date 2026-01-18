@@ -27,7 +27,7 @@ Este projeto demonstra diferentes abordagens para criar chatbots inteligentes em
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Python 3.8 - 3.11** (recomendado: Python 3.11 para melhor compatibilidade)
+- **Python 3.8 a 3.11** (recomendado: Python 3.11 para melhor compatibilidade)
 - **ChatterBot** - Biblioteca para chatbots baseados em regras
 - **spaCy** - Processamento de linguagem natural
 - **Google Generative AI** - API do Google Gemini
