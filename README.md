@@ -27,7 +27,7 @@ Este projeto demonstra diferentes abordagens para criar chatbots inteligentes em
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Python 3.11+**
+- **Python 3.8 - 3.11** (recomendado: Python 3.11 para melhor compatibilidade)
 - **ChatterBot** - Biblioteca para chatbots baseados em regras
 - **spaCy** - Processamento de linguagem natural
 - **Google Generative AI** - API do Google Gemini
@@ -58,10 +58,12 @@ ChatBots/
 
 ## 📋 Pré-requisitos
 
-- Python 3.11 ou superior
+- Python 3.8 a 3.11 (recomendado: 3.11)
 - pip (gerenciador de pacotes Python)
 - Conta Google Cloud com API Gemini habilitada (para implementações Gemini)
 - Jupyter Notebook (opcional, para executar os notebooks)
+
+**Nota sobre versões**: O ChatterBot funciona melhor com Python 3.8 a 3.11. As outras implementações (Gemini e LangChain) funcionam bem com Python 3.11.
 
 ## 🔧 Instalação
 
@@ -106,7 +108,7 @@ pip install langgraph
 
 ### 4. Configure a API Key do Google Gemini
 
-Você tem duas opções para configurar a API Key:
+Você tem três opções para configurar a API Key:
 
 **Opção 1: Usando estrutura de diretórios (para germini.py)**
 
@@ -338,7 +340,7 @@ python -m spacy download en_core_web_sm
 ```
 
 ### Erro de importação do ChatterBot
-Certifique-se de que está usando Python 3.11 ou inferior, pois versões mais recentes podem ter incompatibilidades.
+Certifique-se de que está usando Python 3.8 a 3.11 (recomendado: 3.11), pois versões mais recentes do Python podem ter incompatibilidades com o ChatterBot.
 
 ### Erro de API Key
 Verifique se sua API Key está corretamente configurada e se a API do Gemini está habilitada no Google Cloud.
