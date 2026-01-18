@@ -106,7 +106,9 @@ pip install langgraph
 
 ### 4. Configure a API Key do Google Gemini
 
-**Para usar com scripts Python** (`germini.py`):
+Você tem duas opções para configurar a API Key:
+
+**Opção 1: Usando estrutura de diretórios (para germini.py)**
 
 Crie a estrutura de diretórios e arquivo de configuração:
 
@@ -120,7 +122,15 @@ Crie o arquivo `src/configs/creds_my.py`:
 API_KEY = "sua-chave-api-aqui"
 ```
 
-**Para usar com Google Colab**:
+**Opção 2: Arquivo simples (para gemini.ipynb)**
+
+Crie o arquivo `creds_my.py` na raiz do projeto:
+
+```python
+API_KEY = "sua-chave-api-aqui"
+```
+
+**Opção 3: Para usar com Google Colab**
 
 Configure diretamente no código ou use os secrets do Colab:
 
@@ -129,7 +139,9 @@ from google.colab import userdata
 API_KEY = userdata.get('API_KEY')
 ```
 
-⚠️ **Importante**: Nunca compartilhe sua API Key publicamente!
+⚠️ **Importante**: 
+- Nunca compartilhe sua API Key publicamente!
+- Adicione `creds_my.py` e `src/configs/creds_my.py` ao seu `.gitignore`
 
 ## 💡 Implementações
 
@@ -149,15 +161,37 @@ Um chatbot simples baseado em treinamento com listas de conversas em português.
 ```python
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
+from spacy.cli.download import download
 
+# Baixar modelo de linguagem
+download("en_core_web_sm")
+
+# Criar classe de idioma
+class ENGSM:
+    ISO_639_1 = 'en_core_web_sm'
+
+# Criar e treinar o chatbot
 chatBot = ChatBot("RenanChat", tagger_language=ENGSM)
+
+# Dados de treinamento
+dadosdetreino = [
+    "Iae mano tudo bem",
+    "Tudo numa boa e você como vai",
+    "Gosta de python?",
+    "Adoro acho irado",
+    # ... mais dados de treino
+]
+
 trainer = ListTrainer(chatBot)
 trainer.train(dadosdetreino)
 
 # Iniciar conversa
-mensagem = input("Mande uma mensagem para o RenanChat:")
-resposta = chatBot.get_response(mensagem)
-print(resposta)
+while True:
+    mensagem = input("Mande uma mensagem para o RenanChat:")
+    if mensagem == "exit()":
+        break
+    resposta = chatBot.get_response(mensagem)
+    print(resposta)
 ```
 
 ### 2. Gemini Chat
